@@ -1,0 +1,34 @@
+@import url(../../scss/variables.scss);
+
+#form-container {
+  width: 60vw;
+  height: 60vh;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 24px;
+  display: flex;
+  padding: 24px;
+
+  #form-sidebar {
+    width: 30%;
+    height: 100%;
+    background-image: url(../../assets/images/bg-sidebar-desktop.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 24px;
+  }
+
+  #form-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    #form-data {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      height: 100%;
+    }
+  }
+}
+

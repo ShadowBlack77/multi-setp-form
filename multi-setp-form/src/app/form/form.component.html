@@ -1,0 +1,16 @@
+<section id="form-container">
+  <div id="form-sidebar">
+
+  </div>
+  <div id="form-content">
+    @if (currentStep === 1) {
+      <app-step-one (nextStep)="onNextStep($event)" />
+    }@else if (currentStep === 2) {
+      <app-step-two (nextStep)="onNextStep($event)" />
+    }@else if (currentStep === 3) {
+      <app-step-three />
+    }@else if (currentStep === 4) {
+      <app-step-four />
+    }
+  </div>
+</section>
