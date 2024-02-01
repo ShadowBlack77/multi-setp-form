@@ -1,17 +1,38 @@
 <section id="section-two">
   <div>
-    <h1>Select your plan</h1>
-    <p>You have the option of monthly or yearly biling.</p>
+    <h1 id="step-two-title">Select your plan</h1>
+    <p id="step-two-desc">You have the option of monthly or yearly biling.</p>
   </div>
   <div id="step-two-options-container">
-    <div class="selectable-option" [ngClass]="{'selected': selectedOption === 'Option 1'}" (click)="toggleOption('Option 1')">
-      Arcade
+    <div class="selectable-option" [ngClass]="{'selected': selectedOption === 'arcade'}" (click)="toggleOption('arcade')">
+      <div>
+        <img src="../../../../assets/images/icon-arcade.svg" alt="logo">
+      </div>
+      <div>
+        <h3 class="plan-title">Arcade</h3>
+        <p class="plan-price">{{ periodOption ? '$90/yr' : '$9/mo' }}</p>
+        <p class="plan-bonus" [ngStyle]="{'display' : periodOption ? '' : 'none'}">2 months free</p>
+      </div>
     </div>
-    <div class="selectable-option" [ngClass]="{'selected': selectedOption === 'Option 2'}" (click)="toggleOption('Option 2')">
-      Advanced
+    <div class="selectable-option" [ngClass]="{'selected': selectedOption === 'advanced'}" (click)="toggleOption('advanced')">
+      <div>
+        <img src="../../../../assets/images/icon-advanced.svg" alt="logo">
+      </div>
+      <div>
+        <h3 class="plan-title">Advanced</h3>
+        <p class="plan-price">{{ periodOption ? '$120/yr' : '$12/mo' }}</p>
+        <p class="plan-bonus" [ngStyle]="{'display' : periodOption ? '' : 'none'}">2 months free</p>
+      </div>
     </div>
-    <div class="selectable-option" [ngClass]="{'selected': selectedOption === 'Option 3'}" (click)="toggleOption('Option 3')">
-      Pro
+    <div class="selectable-option" [ngClass]="{'selected': selectedOption === 'pro'}" (click)="toggleOption('pro')">
+      <div>
+        <img src="../../../../assets/images/icon-pro.svg" alt="logo">
+      </div>
+      <div>
+        <h3 class="plan-title">Pro</h3>
+        <p class="plan-price">{{ periodOption ? '$150/yr' : '$15/mo' }}</p>
+        <p class="plan-bonus" [ngStyle]="{'display' : periodOption ? '' : 'none'}">2 months free</p>
+      </div>
     </div>
   </div>
   <div class="period-selection">
@@ -21,7 +42,7 @@
     <p>Yearly</p>
   </div>
   <div id="step-two-btns">
-    <button (click)="prevStepClick()">Go Back</button>
-    <button (click)="nextStepClick()">Next step</button>
+    <button id="go-back" (click)="prevStepClick()">Go Back</button>
+    <button id="next-btn" (click)="nextStepClick()">Next step</button>
   </div>
 </section>

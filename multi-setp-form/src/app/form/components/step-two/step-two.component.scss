@@ -1,73 +1,126 @@
+@import '../../../../scss/variables.scss';
+
 #section-two {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   height: 100%;
   width: 100%;
-}
 
-#step-two-options-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+  #step-two-title {
+    color: $primary-marine-blue;
+    font-size: 2em;
+  }
 
-  .selectable-option {
-    width: 125px;
-    height: 150px;
-    border: 1px solid black;
+  #step-two-desc {
+    color: $neutral-cool-gray;
+  }
+
+  #step-two-options-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .plan-title {
+      color: $primary-marine-blue;
+    }
+    
+    .plan-price {
+      color: $neutral-cool-gray;
+    }
+
+    .plan-bonus {
+      color: $primary-purplish-blue;
+    }
+  
+    .selectable-option {
+      width: 125px;
+      height: 200px;
+      border: 1px solid $neutral-light-gray;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: .2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 0 12px;
+    }
+
+    .selectable-option:hover {
+      border: 1px solid $primary-marine-blue;
+    }
+  
+    .selectable-option.selected {
+      border: 1px solid $primary-marine-blue;
+      background-color: $neutral-alabaster;
+    }
+  }
+  
+  #step-two-btns {
+    display: flex;
+    justify-content: space-between;   
+
+    #next-btn {
+      color: $neutral-magnolia;
+      background-color: $primary-marine-blue;
+      border: none;
+      padding: 16px 36px;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #go-back {
+      border: none;
+      background-color: transparent;
+      font-weight: bold;
+      color: $primary-marine-blue;
+      font-size: 18px;
+    }
+  }
+  
+  .period-selection {
+    display: flex;
+    justify-content: center;
+    align-items: center;                                                                                                                      
+    width: 100%;
+    background-color: $neutral-alabaster;
+    padding: 12px 0;
     border-radius: 12px;
-    cursor: pointer;
-  }
-
-  .selectable-option.selected {
-    border: 1px solid red;
-  }
-}
-
-#step-two-btns {
-  display: flex;
-  justify-content: space-between;   
-}
-
-.period-selection {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: grey;
-  padding: 4px 0;
-
-  .switchButton {
-    background-color: blue;
-    width: 42px;
-    height: 22px;
-    border-radius: 200px;
-    cursor: pointer;
-    position: relative;
-    transition: .2s;
-    margin: 0 12px;
-  }
-
-  .switchButton::before {
-    position: absolute;
-    content: '';
-    background-color: #fff;
-    width: 14px;
-    height: 14px;
-    border-radius: 200px;
-    margin: 4px;
-    transition: .2s;
-  }
   
-  input:checked + .switchButton {
-    background-color: #20096d;
-  }
+    .switchButton {
+      background-color: $primary-marine-blue;
+      width: 42px;
+      height: 22px;
+      border-radius: 200px;
+      cursor: pointer;
+      position: relative;
+      transition: .2s;
+      margin: 0 12px;
+    }
   
-  input:checked + .switchButton::before {
-    transform: translateX(20px);
-  }
-
-    input {
-    display: none;
+    .switchButton::before {
+      position: absolute;
+      content: '';
+      background-color: $neutral-white;
+      width: 14px;
+      height: 14px;
+      border-radius: 200px;
+      margin: 4px;
+      transition: .2s;
+    }
+    
+    input:checked + .switchButton {
+      background-color: $primary-marine-blue;
+    }
+    
+    input:checked + .switchButton::before {
+      transform: translateX(20px);
+    }
+  
+      input {
+      display: none;
+    }
   }
 }

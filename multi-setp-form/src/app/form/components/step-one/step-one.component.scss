@@ -25,10 +25,12 @@
     
     button {
       color: $neutral-magnolia;
-      background-color: $primary-purplish-blue;
+      background-color: $primary-marine-blue;
       border: none;
-      padding: 12px 36px;
+      padding: 16px 36px;
       border-radius: 12px;
+      font-size: 18px;
+      font-weight: bold;
       cursor: pointer;
     }
   }
