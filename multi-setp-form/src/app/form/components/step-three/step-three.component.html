@@ -1,1 +1,59 @@
-<p>step-three works!</p>
+<section id="section-three">
+  <div>
+    <h1 id="step-three-title">Pick add-ons</h1>
+    <p id="step-three-desc">Add-ons help enhance your gaming experience</p>
+  </div>
+  <form id="step-three-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div id="step-three-options-container">
+      <label for="online-service">
+        <div class="step-three-option" [ngClass]="{'checked': onlineServiceChecked}">
+          <div class="step-three-col-one">
+            <input type="checkbox" id="online-service" formControlName="onlineService" (click)="optionClick('online-service')"> 
+            <div>
+              <h4>Online service</h4>
+              <p>Access to multiplayer games</p>
+            </div>
+          </div>
+          <div>
+            <p>+1$/mo</p>
+          </div>
+        </div>
+      </label>
+  
+      <label for="larger-storage">
+        <div class="step-three-option" [ngClass]="{'checked': largerStorageChecked}">
+          <div class="step-three-col-one">
+            <input type="checkbox" id="larger-storage" formControlName="largerStorage" (click)="optionClick('larger-storage')">
+            <div>
+              <h4>Larger storage</h4>
+              <p>Extra 1TB of cloud save</p>
+            </div>
+          </div>
+          <div>
+            <p>+2$/mo</p>
+          </div>
+        </div>
+      </label>
+
+      <label for="customizable-profile">
+        <div class="step-three-option" [ngClass]="{'checked': customizableProfileChecked}">
+          <div class="step-three-col-one">
+            <input type="checkbox" id="customizable-profile" formControlName="customizableProfile" (click)="optionClick('customizable-profile')">
+            <div>
+              <h4>Customizable profile</h4>
+              <p>Custom theme on your profile</p>
+            </div>
+          </div>
+          <div>
+            <p>+2$/mo</p>
+          </div>
+        </div>
+      </label>
+    </div>
+
+    <div id="step-three-btns">
+      <button id="go-back" (click)="prevStepClick()">Go Back</button>
+      <button id="next-btn">Next Step</button>
+    </div>
+  </form>
+</section>
