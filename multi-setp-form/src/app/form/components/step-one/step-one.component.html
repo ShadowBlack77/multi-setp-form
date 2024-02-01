@@ -1,4 +1,40 @@
-<section>
-  <p>step-one works!</p>
-  <button (click)="nextStepClick()">Next Step</button>
+<section id="step-one">
+  <div id="step-one-first-block">
+    <h1 id="step-one-title">Personal info</h1>
+    <p id="step-one-desc">Please provide your name, emial address, and phone number.</p>
+  </div>
+  <form id="step-one-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div id="step-one-input-container">
+      <div>
+        <div class="title-form-control">
+          <label for="name">Name</label>
+          <p class="error-field">{{ nameError }}</p>
+        </div>
+        <div>
+          <input type="text" id="name" formControlName="username">
+        </div>
+      </div>
+      <div>
+        <div class="title-form-control">
+          <label for="email">Email Address</label>
+          <p class="error-field">{{ emailError }}</p>
+        </div>
+        <div>
+          <input type="email" id="email" formControlName="email">
+        </div>
+      </div>
+      <div>
+        <div class="title-form-control">
+          <label for="phone">Phone Number</label>
+          <p class="error-field">{{ phoneError }}</p>
+        </div>
+        <div>
+          <input type="number" id="phone" formControlName="phone">
+        </div>
+      </div>
+    </div>
+    <div id="step-one-button-container">
+      <button>Next Step</button>
+    </div>
+  </form>
 </section>

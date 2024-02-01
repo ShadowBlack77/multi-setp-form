@@ -1,0 +1,72 @@
+@import '../../../../scss/variables.scss';
+
+#step-one {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  #step-one-first-block {
+    margin-bottom: 24px;
+
+    #step-one-title {
+      color: $primary-marine-blue;
+      font-size: 2em;
+    }
+  
+    #step-one-desc {
+      color: $neutral-cool-gray;
+    }
+  }
+
+  #step-one-button-container {
+    display: flex;
+    justify-content: end;
+    
+    button {
+      color: $neutral-magnolia;
+      background-color: $primary-purplish-blue;
+      border: none;
+      padding: 12px 36px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+  }
+
+  #step-one-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 60%;
+  }
+
+  #step-one-input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 65%;
+  }
+  
+  #step-one-input-container input{
+    width: 95%;
+    border-radius: 12px;
+    border: 1px solid black;
+    padding: 8px 12px;
+    font-size: 18px;
+  }
+
+  .error-field {
+    color: $primary-strawberry-red;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .title-form-control {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    padding: 12px 0;
+  }
+}
+

@@ -1,7 +1,7 @@
-@import url(../../scss/variables.scss);
+@import '../../scss/variables.scss';
 
 #form-container {
-  width: 60vw;
+  width: 50vw;
   height: 60vh;
   background-color: hsl(0, 0%, 100%);
   border-radius: 24px;
@@ -9,12 +9,54 @@
   padding: 24px;
 
   #form-sidebar {
-    width: 30%;
+    width: 20vw;
     height: 100%;
     background-image: url(../../assets/images/bg-sidebar-desktop.svg);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
     border-radius: 24px;
+
+    .step-container {
+      padding-top: 48px;
+    }
+
+    .form-sidebar-steps-blocks {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      margin: 16px 0;
+    }
+
+    .form-sidebar-steps-blocks span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      background-color: transparent;
+      border-radius: 100%;
+      border: 1px solid $neutral-light-gray;
+      color: $neutral-light-gray;
+    }
+
+    .form-sidebar-steps-blocks span.current-step {
+      background-color: $neutral-light-gray;
+      color: $primary-marine-blue;
+    }
+
+    .step-description {
+      width: 150px;
+      p {
+        color: $neutral-cool-gray;
+        padding-bottom:  3px 0;
+      }
+      h3 {
+        color: $neutral-white;
+        letter-spacing: 1px;
+        font-size: 18px;
+      }
+    }
   }
 
   #form-content {
@@ -22,6 +64,10 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+
+    #step-one {
+      height: 100%;
+    }
 
     #form-data {
       display: flex;

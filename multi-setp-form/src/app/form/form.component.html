@@ -1,10 +1,47 @@
 <section id="form-container">
   <div id="form-sidebar">
-
+   <div class="step-container">
+    <div class="form-sidebar-steps-blocks">
+      <div>
+        <span [ngClass]="{'current-step': currentStep === 1}">1</span>
+      </div>
+      <div class="step-description">
+        <p>STEP 1</p>
+        <h3>YOUR INFO</h3>
+      </div>
+    </div>
+    <div class="form-sidebar-steps-blocks">
+      <div>
+        <span [ngClass]="{'current-step': currentStep === 2}">2</span>
+      </div>
+      <div class="step-description">
+        <p>STEP 2</p>
+        <h3>SELECT PLAN</h3>
+      </div>
+    </div>
+    <div class="form-sidebar-steps-blocks">
+      <div>
+        <span [ngClass]="{'current-step': currentStep === 3}">3</span>
+      </div>
+      <div class="step-description">
+        <p>STEP 3</p>
+        <h3>ADD-ONS</h3>
+      </div>
+    </div>
+    <div class="form-sidebar-steps-blocks">
+      <div>
+        <span [ngClass]="{'current-step': currentStep === 4}">4</span>
+      </div>
+      <div class="step-description">
+        <p>STEP 4</p>
+        <h3>SUMMARY</h3>
+      </div>
+    </div>
+   </div>
   </div>
   <div id="form-content">
     @if (currentStep === 1) {
-      <app-step-one (nextStep)="onNextStep($event)" />
+      <app-step-one id="step-one" (nextStep)="onNextStep($event)" />
     }@else if (currentStep === 2) {
       <app-step-two (nextStep)="onNextStep($event)" />
     }@else if (currentStep === 3) {
