@@ -9,6 +9,7 @@ import { StepTwoComponent } from './form/components/step-two/step-two.component'
 import { StepThreeComponent } from './form/components/step-three/step-three.component';
 import { StepFourComponent } from './form/components/step-four/step-four.component';
 import { ReactiveFormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ReactiveFormsModule} from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

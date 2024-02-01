@@ -1,0 +1,73 @@
+#section-two {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
+}
+
+#step-two-options-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .selectable-option {
+    width: 125px;
+    height: 150px;
+    border: 1px solid black;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+
+  .selectable-option.selected {
+    border: 1px solid red;
+  }
+}
+
+#step-two-btns {
+  display: flex;
+  justify-content: space-between;   
+}
+
+.period-selection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: grey;
+  padding: 4px 0;
+
+  .switchButton {
+    background-color: blue;
+    width: 42px;
+    height: 22px;
+    border-radius: 200px;
+    cursor: pointer;
+    position: relative;
+    transition: .2s;
+    margin: 0 12px;
+  }
+
+  .switchButton::before {
+    position: absolute;
+    content: '';
+    background-color: #fff;
+    width: 14px;
+    height: 14px;
+    border-radius: 200px;
+    margin: 4px;
+    transition: .2s;
+  }
+  
+  input:checked + .switchButton {
+    background-color: #20096d;
+  }
+  
+  input:checked + .switchButton::before {
+    transform: translateX(20px);
+  }
+
+    input {
+    display: none;
+  }
+}

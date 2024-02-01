@@ -1,4 +1,27 @@
-<section>
-  <p>step-two works!</p>
-  <button (click)="nextStepClick()">Next step</button>
+<section id="section-two">
+  <div>
+    <h1>Select your plan</h1>
+    <p>You have the option of monthly or yearly biling.</p>
+  </div>
+  <div id="step-two-options-container">
+    <div class="selectable-option" [ngClass]="{'selected': selectedOption === 'Option 1'}" (click)="toggleOption('Option 1')">
+      Arcade
+    </div>
+    <div class="selectable-option" [ngClass]="{'selected': selectedOption === 'Option 2'}" (click)="toggleOption('Option 2')">
+      Advanced
+    </div>
+    <div class="selectable-option" [ngClass]="{'selected': selectedOption === 'Option 3'}" (click)="toggleOption('Option 3')">
+      Pro
+    </div>
+  </div>
+  <div class="period-selection">
+    <p>Monthly</p>
+    <input type="checkbox" id="check" #periodSelected [(ngModel)]="periodOption">
+    <label for="check" class="switchButton" (click)="togglePeriod()"></label>
+    <p>Yearly</p>
+  </div>
+  <div id="step-two-btns">
+    <button (click)="prevStepClick()">Go Back</button>
+    <button (click)="nextStepClick()">Next step</button>
+  </div>
 </section>

@@ -41,9 +41,9 @@
   </div>
   <div id="form-content">
     @if (currentStep === 1) {
-      <app-step-one id="step-one" (nextStep)="onNextStep($event)" />
+      <app-step-one class="step-container" (nextStep)="onNextStep($event)" />
     }@else if (currentStep === 2) {
-      <app-step-two (nextStep)="onNextStep($event)" />
+      <app-step-two class="step-container" (nextStep)="onNextStep($event)" />
     }@else if (currentStep === 3) {
       <app-step-three />
     }@else if (currentStep === 4) {

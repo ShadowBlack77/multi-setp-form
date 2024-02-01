@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, inject } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -6,10 +6,34 @@ import { FormBuilder, Validators } from '@angular/forms';
   templateUrl: './step-one.component.html',
   styleUrl: './step-one.component.scss',
 })
-export class StepOneComponent {
+export class StepOneComponent implements OnInit {
   @Output('nextStep') nextStep = new EventEmitter();
 
   fb = inject(FormBuilder);
+
+  ngOnInit(): void {
+    const storedUsername = sessionStorage.getItem('username');
+    const storedEmail = sessionStorage.getItem('email');
+    const storedPhone = sessionStorage.getItem('phone');
+
+    if (storedUsername) {
+      this.form.patchValue({
+        username: storedUsername
+      });
+    }
+
+    if (storedEmail) {
+      this.form.patchValue({
+        email: storedEmail
+      });
+    }
+
+    if (storedPhone) {
+      this.form.patchValue({
+        phone: storedPhone
+      });
+    }
+  }
 
   nameError: string | undefined;
   emailError: string | undefined;
@@ -36,9 +60,6 @@ export class StepOneComponent {
       this.emailError = 'Wpisany email jest niepoprawny';
     }
 
-    console.log(this.form.controls.phone.value);
-    
-
     if (this.form.controls.phone.value === null) {
       this.phoneError = 'This field is required';
     } else if (this.form.controls.phone.value.length < 9) {
@@ -46,6 +67,14 @@ export class StepOneComponent {
     }
 
     if(this.form.valid) {
+      const username: string = this.form.controls.username.value;
+      const email: string = this.form.controls.email.value;
+      const phoneNumber: string = this.form.controls.phone.value;
+      
+      sessionStorage.setItem('username', username);
+      sessionStorage.setItem('email', email);
+      sessionStorage.setItem('phone', phoneNumber);
+
       this.nextStep.emit(2); 
     }
   }
