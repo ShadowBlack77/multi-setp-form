@@ -1,15 +1,38 @@
-import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, inject, ElementRef, HostListener, ViewChild, Host, Input } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-step-one',
   templateUrl: './step-one.component.html',
   styleUrl: './step-one.component.scss',
+  animations: [
+    trigger('formStepOneAnim', [
+      state('start', style({
+        opacity: 0
+      })),
+      state('end', style({
+        opacity: 1
+      })),
+      transition('start => end', [
+        animate('1s .5s ease-in-out')
+      ])
+    ])
+  ]
 })
 export class StepOneComponent implements OnInit {
   @Output('nextStep') nextStep = new EventEmitter();
+  @Input('animSateInput') animSateInput: string = 'end';
+  @ViewChild('stepOneSection') stepOneSection!: ElementRef;
+
+  animState: string = 'start'
 
   fb = inject(FormBuilder);
+
+  @HostListener('window:load')
+  onLoad() {
+    this.animState = this.animSateInput;
+  }
 
   ngOnInit(): void {
     const storedUsername = sessionStorage.getItem('username');
@@ -45,7 +68,7 @@ export class StepOneComponent implements OnInit {
     phone: ['', [Validators.required, Validators.minLength(9)]]
   })
 
-  onSubmit(): void {
+  onSubmit(): void {    
     if (this.form.controls.username.value === '') {
       this.nameError = 'This field is required';
     } else if (this.form.controls.username.value.length < 3 || this.form.controls.username.value.length > 16) {

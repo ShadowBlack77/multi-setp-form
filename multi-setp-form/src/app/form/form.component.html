@@ -1,5 +1,5 @@
 <section id="form-container">
-  <div id="form-sidebar">
+  <div id="form-sidebar" #banerElement [@banerAnim]="animateState">
    <div class="step-container">
     <div class="form-sidebar-steps-blocks">
       <div>
@@ -41,15 +41,15 @@
   </div>
   <div id="form-content">
     @if (currentStep === 1) {
-      <app-step-one class="step-container" (nextStep)="onNextStep($event)" />
+      <app-step-one class="step-container" (nextStep)="onNextStep($event)" #stepOneSection [@formStepOneAnim]="animeStateStep" />
     }@else if (currentStep === 2) {
-      <app-step-two class="step-container" (nextStep)="onNextStep($event)" />
+      <app-step-two class="step-container" (nextStep)="onNextStep($event)" #stepTwoSection [@formStepTwoAnim]="animStateStepTwo" />
     }@else if (currentStep === 3) {
-      <app-step-three class="step-container" (nextStep)="onNextStep($event)" />
+      <app-step-three class="step-container" (nextStep)="onNextStep($event)" #stepThreeSection [@formStepThreeAnim]="animStateStepThree" />
     }@else if (currentStep === 4) {
-      <app-step-four class="step-container" (nextStep)="onNextStep($event)" (serverResponse)="onServResponse($event)" />
+      <app-step-four class="step-container" (nextStep)="onNextStep($event)" #stepFourSection [@formStepFourAnim]="animStateStepFour" (serverResponse)="onServResponse($event)" />
     }@else if (currentStep === 5 && serverRes) {
-      <app-thank-you class="step-container" />
+      <app-thank-you #stepFiveSection [@formStepFiveAnim]="animStateStepFive" class="step-container" />
     }
   </div>
 </section>
