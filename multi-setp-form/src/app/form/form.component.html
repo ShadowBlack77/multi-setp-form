@@ -47,8 +47,8 @@
     }@else if (currentStep === 3) {
       <app-step-three class="step-container" (nextStep)="onNextStep($event)" />
     }@else if (currentStep === 4) {
-      <app-step-four class="step-container" (nextStep)="onNextStep($event)" />
-    }@else if (currentStep === 5) {
+      <app-step-four class="step-container" (nextStep)="onNextStep($event)" (serverResponse)="onServResponse($event)" />
+    }@else if (currentStep === 5 && serverRes) {
       <app-thank-you class="step-container" />
     }
   </div>

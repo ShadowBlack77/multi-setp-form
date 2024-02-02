@@ -1,1 +1,31 @@
 @import '../../../scss/variables.scss';
+
+#thank-you {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  #thank-you-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50%;
+
+    h1 {
+      color: $primary-marine-blue;
+      font-size: 2em;
+    }
+
+    p {
+      text-align: center;
+      line-height: 25px;
+      color: $neutral-cool-gray;
+      padding: 0 12px
+    }
+
+    img {
+      width: 100px;
+    }
+  }
+}

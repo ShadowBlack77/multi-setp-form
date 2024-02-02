@@ -7,8 +7,13 @@ import { Component } from '@angular/core';
 })
 export class FormComponent {
   currentStep: number = 1;
+  serverRes: boolean = false;
 
   onNextStep(stepNumber: number):void {
     this.currentStep = stepNumber;
+  }
+
+  onServResponse(serverRes: boolean) {
+    this.serverRes = serverRes;
   }
 }

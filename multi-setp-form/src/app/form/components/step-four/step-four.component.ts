@@ -1,6 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Service } from '../../../interfaces/Service.interface';
+import { Data } from '../../../interfaces/Data.interface';
 
 @Component({
   selector: 'app-step-four',
@@ -9,6 +11,7 @@ import { Service } from '../../../interfaces/Service.interface';
 })
 export class StepFourComponent implements OnInit {
   @Output() nextStep = new EventEmitter();
+  @Output() serverResponse = new EventEmitter();
 
   additionalOptions: Service[] = [];
   selectedOption: string | undefined;
@@ -16,6 +19,8 @@ export class StepFourComponent implements OnInit {
   additionalOptionsPrice: number = 0;
   periodOptionString: string = 'mo';
   finalPrice: number = 0;
+
+  http = inject(HttpClient);
 
   ngOnInit(): void {
     const storedPeriodOption = sessionStorage.getItem('period');
@@ -67,6 +72,31 @@ export class StepFourComponent implements OnInit {
   }
 
   nextStepClick(): void {
-    this.nextStep.emit(5);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'secret-api': 'secret password'
+    });
+
+    const options = { headers: headers }
+
+    const dataToPass: Data = {
+      name: sessionStorage.getItem('username')!,
+      email: sessionStorage.getItem('email')!,
+      phone: sessionStorage.getItem('phone')!,
+      period: this.periodOptionString,
+      service: this.selectedOption,
+      servicePrice: this.selectedOptionPrice,
+      additionalServices: JSON.stringify(this.additionalOptions),
+      aditionalServicesPrice: this.additionalOptionsPrice,
+      finalPrice: this.finalPrice
+    }
+
+    this.http.post('http://localhost:8080/api/save-user', {
+      data: dataToPass
+    }, options)
+      .subscribe((res: any) => {
+        this.serverResponse.emit(res);
+        this.nextStep.emit(5);
+      })
   }
 }
