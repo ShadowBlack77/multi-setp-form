@@ -14,21 +14,42 @@ export class StepThreeComponent implements OnInit {
   onlineServiceChecked: boolean | null = false;
   largerStorageChecked: boolean | null = false;
   customizableProfileChecked: boolean | null = false;
+  periodOptionSelected: boolean | null = false;
 
   ngOnInit(): void {
     const storedOnlineService = sessionStorage.getItem('onlineService');
     const storedLargerStorage = sessionStorage.getItem('largerStorage');
     const storedCustomizableProfile = sessionStorage.getItem('customizableProfile');
 
-    this.form.patchValue({
-      onlineService: storedOnlineService !== 'true',
-      largerStorage: storedLargerStorage !== 'true',
-      customizableProfile: storedCustomizableProfile !== 'true'
-    });
+    const storedPeriodOption = sessionStorage.getItem('period');
 
-    this.onlineServiceChecked = storedOnlineService !== 'true';
-    this.largerStorageChecked = storedLargerStorage !== 'true';
-    this.customizableProfileChecked = storedCustomizableProfile !== 'true';
+    if (storedPeriodOption) {
+      this.periodOptionSelected = storedPeriodOption === 'true';
+    }
+
+    if (storedOnlineService) {
+      this.form.patchValue({
+        onlineService: storedOnlineService !== 'true',
+      });
+
+      this.onlineServiceChecked = storedOnlineService !== 'true';
+    };
+
+    if (storedLargerStorage) {
+      this.form.patchValue({
+        largerStorage: storedLargerStorage !== 'true',
+      });
+
+      this.largerStorageChecked = storedLargerStorage !== 'true';
+    };
+
+    if (storedCustomizableProfile) {
+      this.form.patchValue({
+        customizableProfile: storedCustomizableProfile !== 'true'
+      });
+  
+      this.customizableProfileChecked = storedCustomizableProfile !== 'true';
+    };
   }
 
   form = this.fb.group({

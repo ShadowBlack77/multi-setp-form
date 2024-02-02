@@ -1,1 +1,32 @@
-<p>step-four works!</p>
+<section id="section-four">
+  <div>
+    <h1 id="step-four-title">Finishing up</h1>
+    <p id="step-four-desc">Double-check everything looks OK before confirming.</p>
+  </div>
+  <div id="step-four-price-configuration">
+    <div id="step-four-configuration">
+      <div id="step-four-selected-option">
+        <div>
+          <h3 id="selected-option">{{ selectedOption }}({{ periodOptionString === 'mo' ? 'Monthly' : 'Yearly' }})</h3>
+          <button (click)="changeOption()" id="change-button">Change</button>
+        </div>
+        <div>
+          <p id="selected-option-price">${{ selectedOptionPrice }}/{{ periodOptionString }}</p>
+        </div>
+      </div>
+      <div id="horizontal-line">
+        <hr />
+      </div>
+      <div *ngFor="let additionalOption of additionalOptions" id="step-four-additional-options">
+        <p class="step-four-mini-title">{{ additionalOption.name }}</p> <p class="additional-options-price">+${{ additionalOption.price }}/{{ periodOptionString }}</p>
+      </div>
+    </div>
+    <div id="step-four-finall-price">
+      <p class="step-four-mini-title">Total(per {{ periodOptionString === 'mo' ? 'month' : 'year' }})</p> <p id="step-four-full-price">${{ finalPrice }}/{{ periodOptionString }}</p>
+    </div>
+  </div>
+  <div id="step-four-btns">
+    <button id="go-back" (click)="prevStepClick()">Go Back</button>
+    <button id="next-btn" (click)="nextStepClick()">Confirm</button>
+  </div>
+</section>

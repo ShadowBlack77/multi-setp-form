@@ -30,7 +30,7 @@
     </div>
     <div class="form-sidebar-steps-blocks">
       <div>
-        <span [ngClass]="{'current-step': currentStep === 4}">4</span>
+        <span [ngClass]="{'current-step': currentStep === 4 || currentStep === 5}">4</span>
       </div>
       <div class="step-description">
         <p>STEP 4</p>
@@ -47,7 +47,9 @@
     }@else if (currentStep === 3) {
       <app-step-three class="step-container" (nextStep)="onNextStep($event)" />
     }@else if (currentStep === 4) {
-      <app-step-four />
+      <app-step-four class="step-container" (nextStep)="onNextStep($event)" />
+    }@else if (currentStep === 5) {
+      <app-thank-you class="step-container" />
     }
   </div>
 </section>

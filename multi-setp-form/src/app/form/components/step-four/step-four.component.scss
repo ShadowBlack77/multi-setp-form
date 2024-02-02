@@ -1,0 +1,122 @@
+@import '../../../../scss/variables.scss';
+
+#section-four {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+
+  #change-button {
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+    padding: 4px 0;
+    color: $primary-pastel-blue;
+    cursor: pointer;
+  }
+
+  #step-four-title {
+    color: $primary-marine-blue;
+    font-size: 2em;
+  }
+
+  #step-four-desc {
+    color: $neutral-cool-gray;
+  }
+
+  #step-four-price-configuration {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 35%;
+    border-radius: 12px;
+  }
+
+  #horizontal-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 12px 0;
+    hr {
+      border: none;
+      width: 100%;
+      height: 1px;
+      background-color: $neutral-cool-gray;
+    }
+  }
+
+  #step-four-configuration {
+    border-radius: 12px;
+    padding: 16px;
+    background-color: $neutral-alabaster;
+    #step-four-selected-option {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      #selected-option {
+        text-transform: capitalize;
+        color: $primary-marine-blue;
+      }
+
+      #selected-option-price {
+        font-weight: bold;
+        color: $primary-marine-blue;
+      }
+    }
+
+    #step-four-additional-options {
+      display: flex;
+      justify-content: space-between;
+      margin: 8px 0;
+    }
+  }
+
+  #step-four-finall-price {
+    display: flex;
+    padding: 16px;
+    justify-content: space-between;
+
+    #step-four-full-price {
+      font-weight: bold;
+      color: $primary-purplish-blue;
+    }
+  }
+
+  .step-four-mini-title {
+    color: $neutral-cool-gray;
+  }
+
+  .additional-options-price {
+    color: $primary-marine-blue;
+  }
+
+
+  #step-four-btns {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+
+    #next-btn {
+      color: $neutral-magnolia;
+      background-color: $primary-marine-blue;
+      border: none;
+      padding: 16px 36px;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #go-back {
+      border: none;
+      background-color: transparent;
+      font-weight: bold;
+      color: $primary-marine-blue;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  }
+}
